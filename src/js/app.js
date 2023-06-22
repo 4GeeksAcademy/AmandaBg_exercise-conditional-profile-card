@@ -33,14 +33,29 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name == null ? "Amanda" : variables.name} ${
+    variables.lastname == null ? "Bogantes" : variables.lastname
+  }</h1>
+          <h2>${variables.role == null ? "DEVOP" : variables.role}</h2>
+          <h3>${variables.city == null ? "Miami, " : variables.city} ${
+    variables.country == null ? "USA" : variables.country
+  }</h3>
+          
+          <ul class="${variables.socialMediaPosition} ">
+            <li><a href="https://www.twitter.com/${
+              variables.twitter == null ? "4GeeksAcademy" : variables.twitter
+            }"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.github.com/${
+              variables.github == null ? "4GeeksAcademy" : variables.github
+            }"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${
+              variables.linkedin == null ? "4GeeksAcademy" : variables.linkedin
+            }"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${
+              variables.instagram == null
+                ? "4GeeksAcademy"
+                : variables.instagram
+            }""><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -61,7 +76,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
